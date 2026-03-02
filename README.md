@@ -1,3 +1,24 @@
+# Node.js Hello World Recipe App
+
+<!-- #ZEROPS_EXTRACT_START:intro# -->
+A [Node.js](https://nodejs.org) 22 application built with [Express](https://expressjs.com) and [TypeScript](https://www.typescriptlang.org), connected to a [PostgreSQL](https://www.postgresql.org) database. Demonstrates idempotent migrations via `zsc execOnce` and a health endpoint at `/` that queries migrated data to confirm both database connectivity and schema integrity.
+Used within [Node.js Hello World recipe](https://app.zerops.io/recipes/nodejs-hello-world) for [Zerops](https://zerops.io) platform.
+<!-- #ZEROPS_EXTRACT_END:intro# -->
+
+⬇️ **Full recipe page and deploy with one-click**
+
+[![Deploy on Zerops](https://github.com/zeropsio/recipe-shared-assets/blob/main/deploy-button/light/deploy-button.svg)](https://app.zerops.io/recipes/nodejs-hello-world?environment=small-production)
+
+![nodejs cover](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-nodejs.svg)
+
+## Integration Guide
+
+<!-- #ZEROPS_EXTRACT_START:integration-guide# -->
+
+### 1. Adding `zerops.yaml`
+The main application configuration file you place at the root of your repository, it tells Zerops how to build, deploy and run your application.
+
+```yaml
 zerops:
   # Production setup — compile TypeScript to JS, deploy
   # compiled artifacts with production dependencies only.
@@ -117,3 +138,5 @@ zerops:
       # or
       #   npm start     (plain ts-node)
       start: zsc noop --silent
+```
+<!-- #ZEROPS_EXTRACT_END:integration-guide# -->
