@@ -146,4 +146,13 @@ zerops:
       #   npm start     (plain ts-node)
       start: zsc noop --silent
 ```
+
+### 2. Trust proxy and bind 0.0.0.0
+
+Zerops terminates SSL at its L7 balancer and forwards requests via reverse proxy. Without trusting the proxy, Express misreports `req.ip` and `req.protocol`. Binding `localhost` causes 502 errors because the L7 balancer routes to the container's VXLAN IP.
+
+```typescript
+app.set('trust proxy', true);
+app.listen(port, '0.0.0.0');
+```
 <!-- #ZEROPS_EXTRACT_END:integration-guide# -->
